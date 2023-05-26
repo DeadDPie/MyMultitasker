@@ -1,0 +1,155 @@
+{
+  "all_users": [
+    {
+      "id": 1,
+      "email": "stri2222@22ng",
+      "username": "sdfgbh",
+      "role": "admin",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "email": "stri2222333333@22ng",
+      "username": "Jesus",
+      "role": "client",
+      "password": "TheBestPasswordOfEver"
+    },
+    {
+      "id": 73,
+      "email": "st333@22ng",
+      "username": "1string",
+      "role": "client",
+      "password": "string"
+    },
+    {
+      "id": 75,
+      "email": "stri2333333@22ng",
+      "username": "st22ring",
+      "role": "client",
+      "password": "string"
+    },
+    {
+      "id": 381,
+      "email": "str\u0441\u0444\u0435\u0444\u0435\u0443\u0443\u0443ing",
+      "username": "stefessdfring",
+      "role": "client",
+      "password": "strierererrng"
+    },
+    {
+      "id": 173,
+      "email": "strisdtrng",
+      "username": "stridtvbng",
+      "role": "client",
+      "password": "string123456"
+    },
+    {
+      "id": 375,
+      "email": "string",
+      "username": "string12345",
+      "role": "client",
+      "password": "stri12345678ng"
+    },
+    {
+      "id": 364,
+      "email": "sdg",
+      "username": "sdfcgh",
+      "role": "client",
+      "password": "12345678"
+    },
+    {
+      "id": 196,
+      "email": "sdgvcf",
+      "username": "sdfcgh",
+      "role": "client",
+      "password": "12345678"
+    },
+    {
+      "id": 92,
+      "email": "SomOleg",
+      "username": "Cupofcat",
+      "role": "client",
+      "password": "0987654321"
+    },
+    {
+      "id": 176,
+      "email": "wesfd",
+      "username": "wasedfcgvh",
+      "role": "client",
+      "password": "12345678"
+    }
+  ],
+  "all_tasks": [
+    {
+      "id": 75,
+      "owner_id": 1,
+      "title": "st22ring",
+      "importance": "very urgent",
+      "executor": "lsd",
+      "description": "string"
+    },
+    {
+      "id": 16,
+      "owner_id": 0,
+      "title": "string",
+      "importance": "very urgent",
+      "executor": "string",
+      "description": "string"
+    },
+    {
+      "id": 66,
+      "owner_id": 2,
+      "title": "string",
+      "importance": "very urgent",
+      "executor": "string",
+      "description": "string"
+    },
+    {
+      "id": 477,
+      "owner_id": 2,
+      "title": "string",
+      "importance": "very urgent",
+      "executor": "string",
+      "description": "string"
+    },
+    {
+      "id": 409,
+      "owner_id": 2,
+      "title": "string",
+      "importance": "very urgent",
+      "executor": "string",
+      "description": "string"
+    },
+    {
+      "id": 14,
+      "owner_id": 1,
+      "title": "dsfd",
+      "importance": "urgent",
+      "executor": "fdsf",
+      "description": "sfxfd"
+    },
+    {
+      "id": 335,
+      "owner_id": 2,
+      "title": "feed",
+      "importance": "urgent",
+      "executor": "cat",
+      "description": "feed yourself"
+    },
+    {
+      "id": 105,
+      "owner_id": 1,
+      "title": "sdfgh",
+      "importance": "urgent",
+      "executor": "sdfb",
+      "description": "sefh"
+    },
+    {
+      "id": 476,
+      "owner_id": 2,
+      "title": "dty",
+      "importance": "urgent",
+      "executor": "segyu",
+      "description": "seedrtg"
+    }
+  ]
+}
