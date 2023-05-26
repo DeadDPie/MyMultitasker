@@ -76,6 +76,13 @@
       "username": "wasedfcgvh",
       "role": "client",
       "password": "12345678"
+    },
+    {
+      "id": 38,
+      "email": "rubcinskija@gmail.com",
+      "username": "ellion23",
+      "role": "client",
+      "password": "Karga3221"
     }
   ],
   "all_tasks": [

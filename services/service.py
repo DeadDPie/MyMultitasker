@@ -61,7 +61,7 @@ class UserService:
             with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
                 json.dump(data, f, indent=2)
 
-                return User(name=data["name"],id=data["id"])#Вот так делать pydentic schema
+                return {"message": "User upd successfully"}#User(name=data["name"],id=data["id"])#Вот так делать pydentic schema
 
         raise HTTPException(status_code=400, detail="User is not found")
 
@@ -98,7 +98,7 @@ class UserService:
             data = json.load(f)
         for item in data["all_users"]:
             if item['email'] == credentials.email and item['password'] == credentials.password:
-                return User(id=item["id"], email=item["email"])
+                return {"message": "User ait successfully"}#User(id=item["id"], email=item["email"])
         return None
 
 

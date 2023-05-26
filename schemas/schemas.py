@@ -53,7 +53,7 @@ class UserCreate(BaseModel):
 
 class User(BaseModel):
     id: int  # uuid.UUID
-    email: str
+    email: str # TODO: EmailStr (install pydantic[email], then "from pydantic import EmailStr")
     username: str
     # tasks: List[Task] = []
 
