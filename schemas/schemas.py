@@ -2,7 +2,8 @@ from typing import List, Union
 from enum import Enum
 from pydantic import BaseModel, validator
 
-
+class Project(BaseModel):
+    id: int
 class TaskImportance(str, Enum):
     very_urgent = "very urgent"
     urgent = "urgent"
