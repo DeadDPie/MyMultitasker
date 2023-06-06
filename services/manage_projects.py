@@ -3,7 +3,7 @@ from random import randint
 
 from fastapi import HTTPException
 
-from schemas.schemas import Project
+from schemas.projects_schema import Project
 
 all_projects: list[dict] = [
     {

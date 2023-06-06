@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from schemas.schemas import Project, Response
+from schemas.projects_schema import Project
+from schemas.schemas import  Response
 from services.manage_projects import project_service
 router = APIRouter()
 
@@ -12,7 +13,7 @@ def get_projects():
     return project_service.get_projects()
 
 
-@router.post("/add", response_model=Response)
+@router.post("/add_project", response_model=Response)
 def make_project(data: Project):
     return project_service.make_project(data)
 

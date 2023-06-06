@@ -14,7 +14,7 @@ def get_subtasks():
     return subtask_service.get_subtasks()
 
 
-@router.post("/add", response_model=Response,)
+@router.post("/add_subtasks", response_model=Response,)
 def make_subtask(data: Subtask):
     return subtask_service.make_subtask(data)
 

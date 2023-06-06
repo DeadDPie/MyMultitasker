@@ -4,8 +4,7 @@ from pydantic import BaseModel, validator
 
 class Response(BaseModel):
     info: str
-class Project(BaseModel):
-    id: int
+
 class TaskImportance(str, Enum):
     very_urgent = "very urgent"
     urgent = "urgent"
