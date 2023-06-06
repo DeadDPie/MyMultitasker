@@ -5,7 +5,7 @@ from api.tasks import router as item_router
 from api.projects import router as project_router
 from api.subtasks import router as subtask_router
 
-router = APIRouter()
+router = APIRouter(prefix='/api')
 
 router.include_router(user_router)
 router.include_router(item_router)

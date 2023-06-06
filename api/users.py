@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from schemas.schemas import User, Credentials, UserUpdate, UserCreate, UserRestore, Response
+from schemas.schemas import User, UserCreate, UserRestore, Response
 from services.service import user_service
 
 router = APIRouter()
