@@ -1,11 +1,11 @@
 from fastapi import APIRouter
-from schemas.schemas import User, Credentials, UserUpdate, UserCreate, UserRestore
+from schemas.schemas import User, Credentials, UserUpdate, UserCreate, UserRestore, Response
 from services.service import user_service
 
 router = APIRouter()
 
 
-@router.post("/users", #response_model=User,
+@router.post("/users", response_model=Response,
 )
 def register_user(data: UserCreate):
     return user_service.register_user(data)
@@ -21,7 +21,7 @@ def get_users():
 
 @router.put(
     "/user_update",
-    # response_model=list[User],
+    response_model=Response,
 )
 def update_user(
         payload: UserRestore):  # -> User:

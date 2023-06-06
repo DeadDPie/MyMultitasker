@@ -25,7 +25,7 @@ class SubtaskManagment:
             data = json.load(f)
         for item in data["all_subtasks"]:
             items.append(
-                subtask(
+                Subtask(
                     id=item['id'],
                     owner_id=item['owner_id'],
                     title=item['title'],
