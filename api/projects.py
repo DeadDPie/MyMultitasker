@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from schemas.schemas import Project
+from schemas.schemas import Project, Response
 from services.manage_projects import project_service
 router = APIRouter()
 
@@ -12,12 +12,12 @@ def get_projects():
     return project_service.get_projects()
 
 
-@router.post("/add")
+@router.post("/add", response_model=Response)
 def make_project(data: Project):
     return project_service.make_project(data)
 
 @router.put(
-    "/project/{id}",
+    "/project/{id}",response_model=Response
 )
 def delete_project(
         id: int):
