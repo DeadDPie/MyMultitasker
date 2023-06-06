@@ -22,5 +22,5 @@ def make_task(data: TaskCreate):
     response_model=Response,
 )
 def delete_task(
-        id: int):
+        id: int, mail: str, password: str):
     return task_service.delete_task(id)

@@ -4,7 +4,7 @@ from random import randint
 from fastapi import HTTPException
 
 from schemas.schemas import Task, TaskCreate
-
+from services.service import UserService
 all_tasks: list[dict] = [
     {
         "id": 75
@@ -63,10 +63,13 @@ class TaskManagment:
 
         return {"message": "Task added successfully"}
 
-    def delete_task(self, id: int):
+    def delete_task(self, id: int, mail: str, password: str):
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
 
+        for item in data["all_users"]:
+            if item['email'] != mail or item['password'] != password:
+                raise HTTPException(status_code=400, detail="You are not registered")
         for i in range(len(data["all_tasks"])):
             if data["all_tasks"][i]["id"] == id:
                 data["all_tasks"].pop(i)

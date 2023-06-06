@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 
-from schemas.schemas import User, UserUpdate, Credentials, UserCreate, UserRestore
+from schemas.schemas import User, Credentials, UserCreate, UserRestore
 from random import randint
 import json
 
@@ -93,12 +93,12 @@ class UserService:
 
         return {"message": "User registered successfully"}
 
-    def _auth(self, credentials: Credentials) -> User or None:
+    def auth(self, credentials: Credentials) -> User or None:
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         for item in data["all_users"]:
             if item['email'] == credentials.email and item['password'] == credentials.password:
-                return {"message": "User ait successfully"}#User(id=item["id"], email=item["email"])
+                return User(id=item["id"], email=item["email"])#{"message": "User auth successfully"}#
         return None
 
 
