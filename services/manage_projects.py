@@ -3,7 +3,7 @@ from random import randint
 
 from fastapi import HTTPException
 
-from schemas.projects_schema import Project
+from schemas.projects_schema import Project, ProjectCreate
 
 all_projects: list[dict] = [
     {
@@ -21,7 +21,7 @@ class ProjectManagment:
 
     def get_projects(self) -> list[Project]:
         items = []
-        with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         for item in data["all_projects"]:
             items.append(
@@ -29,21 +29,19 @@ class ProjectManagment:
                     proj_id=item['proj_id'],
                     owner_id=item['owner_id'],
                     title=item['title'],
-                    importance=item['importance'],
-                    executor=item['executor'],
-                    description=item['description']
+                    tasks = item['tasks']
                 )
             )
         return items
 
-    def make_project(self, payload: Project):
+    def make_project(self, payload: ProjectCreate):
         new_project = {
             "proj_id": randint(3, 500),
             "owner_id": payload.owner_id,
             "title": payload.title,
-            "description": payload.description
+            "tasks": []
         }
-        with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         flag = 0
         for item in data["all_users"]:
@@ -56,13 +54,13 @@ class ProjectManagment:
                 new_project["proj_id"] = randint(10, 500)
 
         data["all_projects"].append(new_project)
-        with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "w") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "project added successfully"}
+        return {'status': 200, 'info': 'Project added successfully'}
 
     def delete_project(self, proj_id: int):
-        with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
 
         for i in range(len(data["all_projects"])):
@@ -70,10 +68,10 @@ class ProjectManagment:
                 data["all_projects"].pop(i)
                 break
 
-        with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "w") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "project was deleted successfully"}
+        return {'status': 200, 'info': 'Project was deleted successfully'}
 
 
 project_service: ProjectManagment = ProjectManagment(all_projects)

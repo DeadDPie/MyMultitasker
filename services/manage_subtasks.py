@@ -21,7 +21,7 @@ class SubtaskManagment:
 
     def get_subtasks(self) -> list[Subtask]:
         items = []
-        with open("D:\PycharmProjects\MyMultisubtasker\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         for item in data["all_subtasks"]:
             items.append(
@@ -40,10 +40,9 @@ class SubtaskManagment:
         new_subtask = {
             "id": randint(3, 500),
             "title": payload.title,
-            "executor": payload.executor,
             "description": payload.description
         }
-        with open("D:\PycharmProjects\MyMultisubtasker\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         flag = 0
         for item in data["all_users"]:
@@ -56,13 +55,13 @@ class SubtaskManagment:
                 new_subtask["id"] = randint(10, 500)
 
         data["all_subtasks"].append(new_subtask)
-        with open("D:\PycharmProjects\MyMultisubtasker\services\data.json", "w") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
         return {"message": "subtask added successfully"}
 
     def delete_subtask(self, id: int):
-        with open("D:\PycharmProjects\MyMultisubtasker\services\data.json", "r") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
 
         for i in range(len(data["all_subtasks"])):
@@ -70,7 +69,7 @@ class SubtaskManagment:
                 data["all_subtasks"].pop(i)
                 break
 
-        with open("D:\PycharmProjects\MyMultisubtasker\services\data.json", "w") as f:
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
         return {"message": "subtask was deleted successfully"}

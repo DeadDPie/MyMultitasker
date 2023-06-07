@@ -223,8 +223,31 @@
     }
   ],
   "all_projects": [
-    {},
-    {}
+    {
+      "proj_id": 1,
+      "owner_id": 92,
+      "title": "str",
+      "tasks": [
+        235,
+        288,
+        335
+      ]
+    },
+    {
+      "proj_id": 2,
+      "owner_id": 92,
+      "title": "strdsf",
+      "tasks": [
+        66,
+        16
+      ]
+    },
+    {
+      "proj_id": 95,
+      "owner_id": 92,
+      "title": "stsdfghring",
+      "tasks": []
+    }
   ],
   "all_subtasks": [
     {},
