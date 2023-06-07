@@ -22,7 +22,7 @@ def get_users():
     return user_service.get_users()
 
 
-@router.put(
+@router.post(
     "/user_update",
     response_model=User,
 )

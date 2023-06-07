@@ -51,15 +51,19 @@ class UserService:
 
         if payload.password != payload.password2:
             raise HTTPException(status_code=400, detail="The password was entered incorrectly")
-
+        username = ""
+        user_id = ""
         for item in data["all_users"]:
             if item["email"] == payload.email:
                 item['password'] = payload.password
+                username = item["username"]
+                user_id = item["id"]
+
                 #print(payload.password)
             with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
                 json.dump(data, f, indent=2)
 
-                return User(id=data["id"], email = data, username=data["name"]) #Вот так делать pydentic schema {'status': 200, 'info': 'User upd successfully'}
+                return User(id=user_id, email = payload.email, username=username) #Вот так делать pydentic schema {'status': 200, 'info': 'User upd successfully'}
 
         raise HTTPException(status_code=400, detail="User is not found")
 
