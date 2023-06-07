@@ -22,10 +22,10 @@ def get_users():
     return user_service.get_users()
 
 
-@router.post(
+@router.put(
     "/user_update",
     response_model=User,
 )
 def update_user(
         payload: UserRestore):  # -> User:
-    return user_service.update_user(payload=payload)
+    return user_service.update_user(payload)
