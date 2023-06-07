@@ -62,7 +62,6 @@ class User(BaseModel):
 
 class UserRestore(BaseModel):
     email: str
-    code: str
     password: str
     password2: str
 

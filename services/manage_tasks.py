@@ -62,7 +62,7 @@ class TaskManagment:
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "Task added successfully"}
+        return {'status': 200, 'info': 'Task added successfully'}
 
     def delete_task(self, id: int):
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
@@ -75,7 +75,7 @@ class TaskManagment:
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "Task was deleted successfully"}
+        return {'status': 200, 'info': 'Task was deleted successfully'}
 
 
 task_service: TaskManagment = TaskManagment(all_tasks)
