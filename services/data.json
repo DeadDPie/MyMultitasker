@@ -111,6 +111,13 @@
       "username": "wrh",
       "role": "client",
       "password": "12345678"
+    },
+    {
+      "id": 124,
+      "email": "sfdxj",
+      "username": "sdfgj",
+      "role": "client",
+      "password": "asfchsfdh"
     }
   ],
   "all_tasks": [

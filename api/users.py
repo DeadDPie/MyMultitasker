@@ -24,7 +24,7 @@ def get_users():
 
 @router.put(
     "/user_update",
-    response_model=Response,
+    response_model=User,
 )
 def update_user(
         payload: UserRestore):  # -> User:
