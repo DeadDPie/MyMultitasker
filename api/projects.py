@@ -25,8 +25,8 @@ def delete_project(
         id: int):
     return project_service.delete_project(id)
 
-@router.post(
-    "/project/{id}",response_model=Union[List[int], None]
+@router.get(
+    "/show_tasks",response_model=Union[List[int], None]
 )
 def show_tasks(
         proj_id: int):
