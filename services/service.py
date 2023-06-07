@@ -52,7 +52,7 @@ class UserService:
         if payload.password != payload.password2:
             raise HTTPException(status_code=400, detail="The password was entered incorrectly")
         username = ""
-        user_id = ""
+        user_id = 0
         for item in data["all_users"]:
             if item["email"] == payload.email:
                 item['password'] = payload.password
