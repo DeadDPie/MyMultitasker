@@ -5,7 +5,7 @@ from services.service import user_service
 router = APIRouter()
 
 
-@router.post("/users", response_model=Response,
+@router.post("/users", response_model=User,
 )
 def register_user(data: UserCreate):
     return user_service.register_user(data)

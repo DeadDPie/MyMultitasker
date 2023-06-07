@@ -13,7 +13,7 @@ def get_projects():
     return project_service.get_projects()
 
 
-@router.post("/add_project", response_model=Response)
+@router.post("/add_project/{proj_id}", response_model=Response)
 def make_project(data: Project):
     return project_service.make_project(data)
 

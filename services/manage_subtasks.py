@@ -39,9 +39,7 @@ class SubtaskManagment:
     def make_subtask(self, payload: Subtask):
         new_subtask = {
             "id": randint(3, 500),
-            "owner_id": payload.owner_id,
             "title": payload.title,
-            "importance": payload.importance,
             "executor": payload.executor,
             "description": payload.description
         }

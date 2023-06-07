@@ -91,15 +91,22 @@ class UserService:
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(users, f, indent=2)
 
-        return {"message": "User registered successfully"}
+        return User(id = new_user["id"],
+                    email= payload.email,
+        username= payload.username)#{"message": "User registered successfully"}
 
-    def auth(self, credentials: Credentials) -> User or None:
+    def auth(self, credentials: Credentials) -> User :
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
+        flag = 0
         for item in data["all_users"]:
             if item['email'] == credentials.email and item['password'] == credentials.password:
-                return User(id=item["id"], email=item["email"])#{"message": "User auth successfully"}#
-        return None
+                flag = 0
+                return User(id=item["id"], email=item["email"], username= item["username"])#{"message": "User auth successfully"}#
+            else:
+                flag = 1
+        if flag:
+            raise HTTPException(status_code=400, detail="You are not registered")
 
 
 

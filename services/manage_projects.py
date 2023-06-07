@@ -7,10 +7,10 @@ from schemas.projects_schema import Project
 
 all_projects: list[dict] = [
     {
-        "id": 75
+        "proj_id": 75
     },
     {
-        "id": 381,
+        "proj_id": 381,
     }
 ]
 
@@ -26,7 +26,7 @@ class ProjectManagment:
         for item in data["all_projects"]:
             items.append(
                 Project(
-                    id=item['id'],
+                    proj_id=item['proj_id'],
                     owner_id=item['owner_id'],
                     title=item['title'],
                     importance=item['importance'],
@@ -38,11 +38,9 @@ class ProjectManagment:
 
     def make_project(self, payload: Project):
         new_project = {
-            "id": randint(3, 500),
+            "proj_id": randint(3, 500),
             "owner_id": payload.owner_id,
             "title": payload.title,
-            "importance": payload.importance,
-            "executor": payload.executor,
             "description": payload.description
         }
         with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "r") as f:
@@ -54,8 +52,8 @@ class ProjectManagment:
         if flag == 0:
             raise HTTPException(status_code=400, detail="There is no such user")
         for item in data["all_projects"]:
-            while item["id"] == new_project["id"]:
-                new_project["id"] = randint(10, 500)
+            while item["proj_id"] == new_project["proj_id"]:
+                new_project["proj_id"] = randint(10, 500)
 
         data["all_projects"].append(new_project)
         with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "w") as f:
@@ -63,12 +61,12 @@ class ProjectManagment:
 
         return {"message": "project added successfully"}
 
-    def delete_project(self, id: int):
+    def delete_project(self, proj_id: int):
         with open("D:\PycharmProjects\MyMultiprojecter\services\data.json", "r") as f:
             data = json.load(f)
 
         for i in range(len(data["all_projects"])):
-            if data["all_projects"][i]["id"] == id:
+            if data["all_projects"][i]["proj_id"] == proj_id:
                 data["all_projects"].pop(i)
                 break
 

@@ -83,6 +83,27 @@
       "username": "ellion23",
       "role": "client",
       "password": "Karga3221"
+    },
+    {
+      "id": 119,
+      "email": "stri12ng",
+      "username": "stri23123ng",
+      "role": "client",
+      "password": "12345string"
+    },
+    {
+      "id": 318,
+      "email": "st23467ring",
+      "username": "str4567ing",
+      "role": "client",
+      "password": "12345string"
+    },
+    {
+      "id": 292,
+      "email": "sdxvntring",
+      "username": "strdxing",
+      "role": "client",
+      "password": "123string"
     }
   ],
   "all_tasks": [
@@ -149,14 +170,6 @@
       "importance": "urgent",
       "executor": "sdfb",
       "description": "sefh"
-    },
-    {
-      "id": 476,
-      "owner_id": 2,
-      "title": "dty",
-      "importance": "urgent",
-      "executor": "segyu",
-      "description": "seedrtg"
     }
   ],
   "all_projects": [

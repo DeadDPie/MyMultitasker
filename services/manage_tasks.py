@@ -23,6 +23,7 @@ class TaskManagment:
         items = []
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
+        
         for item in data["all_tasks"]:
             items.append(
                 Task(
