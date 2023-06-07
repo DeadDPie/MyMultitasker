@@ -73,5 +73,14 @@ class ProjectManagment:
 
         return {'status': 200, 'info': 'Project was deleted successfully'}
 
+    def show_tasks(self, proj_id: int):
+        items = []
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
+            data = json.load(f)
+        for item in data["all_projects"]:
+            if item["proj_id"]==proj_id:
+                return item['tasks']
+        return None
+
 
 project_service: ProjectManagment = ProjectManagment(all_projects)

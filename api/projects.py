@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from typing import List, Union
 from schemas.projects_schema import Project, ProjectCreate
 from schemas.schemas import  Response
 from services.manage_projects import project_service
@@ -23,3 +24,10 @@ def make_project(data: ProjectCreate):
 def delete_project(
         id: int):
     return project_service.delete_project(id)
+
+@router.post(
+    "/project/{id}",response_model=Union[List[int], None]
+)
+def show_tasks(
+        proj_id: int):
+    return project_service.show_tasks(proj_id)
