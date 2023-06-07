@@ -64,13 +64,9 @@ class TaskManagment:
 
         return {"message": "Task added successfully"}
 
-    def delete_task(self, id: int, mail: str, password: str):
+    def delete_task(self, id: int):
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
-
-        for item in data["all_users"]:
-            if item['email'] != mail or item['password'] != password:
-                raise HTTPException(status_code=400, detail="You are not registered")
         for i in range(len(data["all_tasks"])):
             if data["all_tasks"][i]["id"] == id:
                 data["all_tasks"].pop(i)
