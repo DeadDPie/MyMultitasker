@@ -23,4 +23,4 @@ def make_task(data: TaskCreate):
 )
 def delete_task(
         id: int, mail: str, password: str):
-    return task_service.delete_task(id)
+    return task_service.delete_task(id, mail, password)

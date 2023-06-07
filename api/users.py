@@ -10,7 +10,7 @@ router = APIRouter()
 def register_user(data: UserCreate):
     return user_service.register_user(data)
 
-@router.post('/login', response_model= User)
+@router.post('/login', response_model = User)
 def auth(data: Credentials):
     return user_service.auth(data)
 
