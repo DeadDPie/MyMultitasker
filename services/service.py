@@ -39,6 +39,7 @@ class UserService:
         return items
 
     def update_user(self, payload: UserRestore): # -> User:
+        print("aaaaaaaaaa")
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
         # Check if user already exists
@@ -58,14 +59,12 @@ class UserService:
                 item['password'] = payload.password
                 username = item["username"]
                 user_id = item["id"]
+        with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
+            json.dump(data, f, indent=2)
 
-                #print(payload.password)
-            with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
-                json.dump(data, f, indent=2)
+            return User(id=user_id, email = payload.email, username=username) #Вот так делать pydentic schema {'status': 200, 'info': 'User upd successfully'}
 
-                return User(id=user_id, email = payload.email, username=username) #Вот так делать pydentic schema {'status': 200, 'info': 'User upd successfully'}
-
-        raise HTTPException(status_code=400, detail="User is not found")
+        #raise HTTPException(status_code=400, detail="User is not found")
 
     def register_user(self, payload: UserCreate):# -> User or str:
         new_user = {
