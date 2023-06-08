@@ -159,7 +159,7 @@
     },
     {
       "id": 66,
-      "owner_id": 2,
+      "owner_id": 92,
       "title": "string",
       "importance": "very urgent",
       "executor": "string",
@@ -246,7 +246,7 @@
       "proj_id": 95,
       "owner_id": 92,
       "title": "stsdfghring",
-      "tasks": []
+      "tasks": [103]
     }
   ],
   "all_subtasks": [
