@@ -8,7 +8,7 @@ class SubtaskCreate(BaseModel):
     title: str
 
 class Subtask(BaseModel):
-    id: int
+    subtask_id: int
     task_id: int
     owner_id: int
     title: str

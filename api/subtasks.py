@@ -19,7 +19,7 @@ def make_subtask(data: SubtaskCreate):
     return subtask_service.make_subtask(data)
 
 @router.put(
-    "/subtask/{id}", response_model=Response,
+    "/subtask/{subtask_id}", response_model=Response,
 )
 def delete_subtask(
         subtask_id: int):

@@ -25,7 +25,7 @@ class subtaskManagment:
         for item in data["all_subtasks"]:
             items.append(
                 Subtask(
-                    id = item['id'],
+                    subtask_id = item['subtask_id'],
                    task_id=item['task_id'],
                     owner_id=item['owner_id'],
                     title=item['title']
@@ -35,7 +35,7 @@ class subtaskManagment:
 
     def make_subtask(self, payload: SubtaskCreate):
         new_subtask = {
-            "id": randint(3, 500),
+            "subtask_id": randint(3, 500),
             "task_id": payload.task_id,
             "owner_id": payload.owner_id,
             "title": payload.title,
@@ -49,8 +49,8 @@ class subtaskManagment:
         if flag == 0:
             raise HTTPException(status_code=400, detail="There is no such user")
         for item in data["all_subtasks"]:
-            while item["id"] == new_subtask["id"]:
-                new_subtask["id"] = randint(10, 500)
+            while item["subtask_id"] == new_subtask["subtask_id"]:
+                new_subtask["subtask_id"] = randint(10, 500)
 
         data["all_subtasks"].append(new_subtask)
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
@@ -63,7 +63,7 @@ class subtaskManagment:
             data = json.load(f)
 
         for i in range(len(data["all_subtasks"])):
-            if data["all_subtasks"][i]["id"] == subtask_id:
+            if data["all_subtasks"][i]["subtask_id"] == subtask_id:
                 data["all_subtasks"].pop(i)
                 break
 
