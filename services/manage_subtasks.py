@@ -3,19 +3,18 @@ from random import randint
 
 from fastapi import HTTPException
 
-from schemas.subtasks_schema import Subtask
+from schemas.subtasks_schema import Subtask, SubtaskCreate
 
 all_subtasks: list[dict] = [
     {
-        "id": 75
+        "proj_id": 75
     },
     {
-        "id": 381,
+        "proj_id": 381,
     }
 ]
 
-
-class SubtaskManagment:
+class subtaskManagment:
     def __init__(self, subtask_data: list[dict]) -> None:
         self.subtask_data = subtask_data
 
@@ -26,21 +25,20 @@ class SubtaskManagment:
         for item in data["all_subtasks"]:
             items.append(
                 Subtask(
-                    id=item['id'],
+                    id = item['id'],
+                   task_id=item['task_id'],
                     owner_id=item['owner_id'],
-                    title=item['title'],
-                    importance=item['importance'],
-                    executor=item['executor'],
-                    description=item['description']
+                    title=item['title']
                 )
             )
         return items
 
-    def make_subtask(self, payload: Subtask):
+    def make_subtask(self, payload: SubtaskCreate):
         new_subtask = {
             "id": randint(3, 500),
+            "task_id": payload.task_id,
+            "owner_id": payload.owner_id,
             "title": payload.title,
-            "description": payload.description
         }
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
@@ -58,21 +56,21 @@ class SubtaskManagment:
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "subtask added successfully"}
+        return {'status': 200, 'info': 'subtask added successfully'}
 
-    def delete_subtask(self, id: int):
+    def delete_subtask(self, subtask_id: int):
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "r") as f:
             data = json.load(f)
 
         for i in range(len(data["all_subtasks"])):
-            if data["all_subtasks"][i]["id"] == id:
+            if data["all_subtasks"][i]["id"] == subtask_id:
                 data["all_subtasks"].pop(i)
                 break
 
         with open("D:\PycharmProjects\MyMultitasker\services\data.json", "w") as f:
             json.dump(data, f, indent=2)
 
-        return {"message": "subtask was deleted successfully"}
+        return {'status': 200, 'info': 'subtask was deleted successfully'}
 
 
-subtask_service: SubtaskManagment = SubtaskManagment(all_subtasks)
+subtask_service: subtaskManagment = subtaskManagment(all_subtasks)

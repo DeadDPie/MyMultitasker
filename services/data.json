@@ -246,11 +246,35 @@
       "proj_id": 95,
       "owner_id": 92,
       "title": "stsdfghring",
-      "tasks": [103]
+      "tasks": [
+        103
+      ]
     }
   ],
   "all_subtasks": [
-    {},
-    {}
+    {
+      "id": 88,
+      "task_id": 935,
+      "owner_id": 1,
+      "title": "stsddcfghfghring"
+    },
+    {
+      "id": 2818,
+      "task_id": 450,
+      "owner_id": 2,
+      "title": "string"
+    },
+    {
+      "id": 69,
+      "task_id": 2,
+      "owner_id": 2,
+      "title": "stringhg"
+    },
+    {
+      "id": 426,
+      "task_id": 2,
+      "owner_id": 2,
+      "title": "stringhg"
+    }
   ]
 }

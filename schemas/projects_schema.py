@@ -1,8 +1,6 @@
 from typing import List, Union
 from pydantic import BaseModel
 
-from schemas import Task
-
 
 class ProjectCreate(BaseModel):
     owner_id: int

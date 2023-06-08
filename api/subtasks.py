@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from schemas.schemas import Response
-from schemas.subtasks_schema import Subtask
+from schemas.subtasks_schema import Subtask, SubtaskCreate
 from services.manage_subtasks import subtask_service
 router = APIRouter()
 
@@ -15,12 +15,12 @@ def get_subtasks():
 
 
 @router.post("/add_subtasks/{id}", response_model=Response,)
-def make_subtask(data: Subtask):
+def make_subtask(data: SubtaskCreate):
     return subtask_service.make_subtask(data)
 
 @router.put(
     "/subtask/{id}", response_model=Response,
 )
 def delete_subtask(
-        id: int):
-    return subtask_service.delete_subtask(id)
+        subtask_id: int):
+    return subtask_service.delete_subtask(subtask_id)
